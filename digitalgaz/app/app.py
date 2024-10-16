@@ -21,3 +21,8 @@ async def get_flow_value(file: UploadFile = File(...)):
         await f.write(content)
 
     return {"value":file.filename}
+
+@app.get("/")
+async def index():
+    
+    return {"message":"Hello from ООСД!"}
