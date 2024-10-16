@@ -1,9 +1,12 @@
 import uvicorn
 from loguru import logger
 from dotenv import load_dotenv
+load_dotenv()
+
+from digitalgaz.app import app
 
 def main():
-    load_dotenv()
+    
     logger.remove()
     logger.add("logs/{time}.log",
                level="DEBUG")
