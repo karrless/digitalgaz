@@ -5,6 +5,8 @@ load_dotenv()
 
 from digitalgaz.app import app
 
+from digitalgaz.app import app
+
 def main():
     
     logger.remove()
