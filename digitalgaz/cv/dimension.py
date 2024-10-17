@@ -14,7 +14,7 @@ def get_dimension(path: str) -> list[str | None]:
     пустой массив - модель не смогла ничего определить
     """
     # Запуск модели для изображения
-    results = DIMENSION_MODEL(path, show=True, conf=0.4, save=True)
+    results = DIMENSION_MODEL(path, show=False, conf=0.4, save=False)
 
     # Проверяем первый результат
     result = results[0]  # получаем первый элемент из списка
