@@ -10,7 +10,7 @@ def main():
                level="DEBUG")
     logger.info("Старт скрипта")
     
-    uvicorn.run("digitalgaz.app:app", host="localhost", port=3005, reload=True)
+    uvicorn.run("digitalgaz.app:app", host="karrless.ru", port=3005, reload=True)
 
 if __name__ == '__main__':
     main()

@@ -6,13 +6,13 @@ from digitalgaz.config import IMG_PATH
 
 app = FastAPI()
 
-@app.post("/")
+@app.post("/api")
 async def get_flow_value(file: UploadFile = File(...)):
     """
     Обработка пост запроса на получение значения расхода с датчика на фото
     
     """
-    if file.content_type.startswith('image'):
+    if not file.content_type.startswith('image'):
         raise HTTPException(status_code=400, detail="File is not a valid image.")
     
     file_path = IMG_PATH+file.filename
@@ -22,7 +22,7 @@ async def get_flow_value(file: UploadFile = File(...)):
 
     return {"value":file.filename}
 
-@app.get("/")
+@app.get("/api")
 async def index():
     
     return {"message":"Hello from ООСД!"}
