@@ -17,5 +17,5 @@ def process_image(file_path: str) -> dict:
     result["value"] = number if number else "Не определено"
     result["dimension"] = "m^3" if "m-3" in dimension else "-"
     result["type"] = "Расход" if "rashod" in dimension else "-"
-    result["time"] = end_time - start_time
+    result["time"] = str(end_time - start_time)
     return result
