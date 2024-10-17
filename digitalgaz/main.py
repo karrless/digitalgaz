@@ -15,5 +15,3 @@ async def bot_run():
 
 def bot_start():
     asyncio.run(bot_run())
-
-asyncio.run(bot_run())
