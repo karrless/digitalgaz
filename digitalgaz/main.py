@@ -1,17 +1,19 @@
+import asyncio
+
 import uvicorn
-from loguru import logger
 from dotenv import load_dotenv
 load_dotenv()
 
-def main():
-    
-    logger.remove()
-    logger.add("logs/{time}.log",
-               level="DEBUG")
-    logger.info("Старт скрипта")
-    
-    uvicorn.run("digitalgaz.app:app", host="karrless.ru", port=3005, reload=True)
+def web_start():
+  uvicorn.run("digitalgaz.app:app", host="karrless.ru", port=3005, reload=True)
 
-if __name__ == '__main__':
-    main()
+async def bot_run():
+    from digitalgaz.bot import bot, dp
+    await bot.delete_webhook(drop_pending_updates=True)
+    print("Bot started")
+    await dp.start_polling(bot)
 
+def bot_start():
+    asyncio.run(bot_run())
+
+asyncio.run(bot_run())
